@@ -18,11 +18,6 @@ class Posts extends Component {
         }
     }
 
-    componentDidMount() {
-    }
-
-
-
     render() {
 
         return (
