@@ -7,4 +7,6 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import 'main';
+@import 'base/base';
+
+@import 'base/header';

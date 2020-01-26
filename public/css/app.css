@@ -11366,3 +11366,26 @@ body {
   margin: 0;
 }
 
+.main-container {
+  padding-top: 75px;
+  min-height: 100vh;
+  background-image: url("/images/bg_image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar {
+  background-color: #3490dc !important;
+  height: 75px;
+  position: fixed;
+  width: 100vw;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.navbar .dropdown-menu a {
+  color: black !important;
+}
+

@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Posts from './Posts';
+
 
 function Home() {
     return (
-        <div className="container">
-            <div className="row justify-content-center">
+        <div className="home-container">
+            <div className="row ">
                 <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
+                    <Posts />
+                </div>
+                <div className="col-md-4">
 
-                        <div className="card-body">I'm an example component!</div>
-                    </div>
                 </div>
             </div>
         </div>

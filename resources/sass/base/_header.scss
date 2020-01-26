@@ -1,0 +1,12 @@
+.navbar {
+    background-color: $blue !important;
+    height: 75px;
+    position: fixed;
+    width: 100vw;
+    a {
+        color: white !important;
+    }
+    .dropdown-menu a {
+        color: black !important;
+    }
+}
