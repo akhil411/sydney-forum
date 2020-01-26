@@ -91736,6 +91736,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Snackbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @material-ui/core/Snackbar */ "./node_modules/@material-ui/core/esm/Snackbar/index.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -91744,9 +91746,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -91768,23 +91770,96 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(AddPost).call(this));
     _this.state = {
-      name: 'hello',
-      email: '',
-      contactNumber: '',
       subject: '',
       description: '',
       errors: {},
       submitSuccess: false
     };
+    _this.handleInputChange = _this.handleInputChange.bind(_assertThisInitialized(_this));
+    _this.handleFormSubmit = _this.handleFormSubmit.bind(_assertThisInitialized(_this));
+    _this.handleClose = _this.handleClose.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(AddPost, [{
+    key: "handleInputChange",
+    value: function handleInputChange(event) {
+      var target = event.target;
+      var name = target.name;
+      var value = target.value;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "handleFormSubmit",
+    value: function handleFormSubmit(event) {
+      event.preventDefault();
+      var newEnquiry = {
+        subject: this.state.subject,
+        description: this.state.description
+      };
+      console.log(newEnquiry);
+      this.setState({
+        submitSuccess: true,
+        subject: '',
+        description: ''
+      });
+    }
+  }, {
+    key: "handleClose",
+    value: function handleClose(event, reason) {
+      if (reason === 'clickaway') {
+        return;
+      }
+
+      this.setState({
+        submitSuccess: false
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.state.name));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-header"
+      }, "Post your Enquiry"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "card-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "enquiry-form"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        noValidate: true,
+        autoComplete: "off",
+        onSubmit: this.handleFormSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        name: "subject",
+        type: "text",
+        label: "Subject*",
+        value: this.state.subject // error={errors.name}
+        ,
+        onChange: this.handleInputChange // className={classnames("", {
+        //     invalid: errors.name
+        // })}
+
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_TextField__WEBPACK_IMPORTED_MODULE_1__["default"], {
+        name: "description",
+        type: "text",
+        label: "More details*",
+        value: this.state.description // error={errors.name}
+        ,
+        onChange: this.handleInputChange // className={classnames("", {
+        //     invalid: errors.name
+        // })}
+
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "modal-call-button",
+        type: "submit",
+        value: "Submit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Submit "))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_material_ui_core_Snackbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        open: this.state.submitSuccess,
+        autoHideDuration: 3000,
+        onClose: this.handleClose,
+        message: "\u2714 Enquiry Submitted Successfully"
+      }));
     }
   }]);
 

@@ -11360,7 +11360,7 @@ html,
 body {
   background-color: #fff;
   color: #636b6f;
-  font-family: "Nunito", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 200;
   height: 100vh;
   margin: 0;
@@ -11387,5 +11387,11 @@ body {
 
 .navbar .dropdown-menu a {
   color: black !important;
+}
+
+.navbar-brand {
+  font-family: "Ultra", serif;
+  font-size: 30px;
+  letter-spacing: 1.2px;
 }
 
