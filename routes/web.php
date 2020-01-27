@@ -16,3 +16,13 @@ Route::get('/', 'MainController@index')->name('main');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/enquiry/post_enquiry', array (
+    'as' => 'enquiry.post_enquiry',
+    'uses' => 'EnquiryController@postEnquiry'
+));
+
+Route::get('/enquiry/get_enquiry', array (
+    'as' => 'enquiry.post_enquiry',
+    'uses' => 'EnquiryController@getEnquiry'
+));

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
 import Snackbar from '@material-ui/core/Snackbar';
+import { EditorState, convertToRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import draftToHtml from 'draftjs-to-html';
 
 class AddPost extends Component {
     constructor(){
@@ -10,19 +14,37 @@ class AddPost extends Component {
             subject: '',
             description: '',
             errors: {},
-            submitSuccess: false
+            enquiries: [],
+            submitSuccess: false,
+            editorState: EditorState.createEmpty()
         };
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.onEditorStateChange = this.onEditorStateChange.bind(this);
+        this.getEnquiry = this.getEnquiry.bind(this);
+
+    }
+
+    componentDidMount () {
+        this.getEnquiry();
     }
 
     handleInputChange (event) {
-        const target = event.target;
-        const name = target.name;
-        const value = target.value;
+        this.setState({subject: event.target.value})
+    }
+
+    onEditorStateChange (editorState) {
         this.setState({
-            [name]: value
+          editorState
+        });
+    }
+
+    getEnquiry () {
+        let uri = '/enquiry/get_enquiry';
+        axios.get(uri).then((response) => {
+            console.log(response.data)
+            this.setState({ enquiries: response.data})
         });
     }
 
@@ -30,10 +52,13 @@ class AddPost extends Component {
         event.preventDefault();
         const newEnquiry = {
             subject: this.state.subject,
-            description: this.state.description
+            description: draftToHtml(convertToRaw(this.state.editorState.getCurrentContent()))
         };
-        console.log(newEnquiry)
-        this.setState({ submitSuccess: true, subject:'', description:'' })
+        let uri = '/enquiry/post_enquiry';
+        axios.post(uri, newEnquiry).then((response) => {
+            this.setState({ submitSuccess: true, subject:'', editorState:'' })
+            this.getEnquiry();
+        });
     };
 
     handleClose (event, reason) {
@@ -44,7 +69,6 @@ class AddPost extends Component {
     };
 
     render() {
-
         return (
                 <div className="card">
                         <div className="card-header">Post your Enquiry</div>
@@ -63,16 +87,11 @@ class AddPost extends Component {
                                             // })}
                                         />
                                         <br></br>
-                                        <TextField
-                                            name="description"
-                                            type="text"
-                                            label="More details*"
-                                            value={this.state.description}
-                                            // error={errors.name}
-                                            onChange={this.handleInputChange}
-                                            // className={classnames("", {
-                                            //     invalid: errors.name
-                                            // })}
+                                        <Editor
+                                            editorState={this.state.editorState}
+                                            wrapperClassName="demo-wrapper"
+                                            editorClassName="demo-editor"
+                                            onEditorStateChange={this.onEditorStateChange}
                                         />
                                         <br></br>
                                         <br></br>
