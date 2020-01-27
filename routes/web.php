@@ -26,3 +26,8 @@ Route::get('/enquiry/get_enquiry', array (
     'as' => 'enquiry.post_enquiry',
     'uses' => 'EnquiryController@getEnquiry'
 ));
+
+Route::get('/enquiry/{id}', array (
+    'as' => 'enquiry.show',
+    'uses' => 'EnquiryController@show'
+));
