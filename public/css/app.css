@@ -11413,3 +11413,16 @@ body {
   text-decoration: none;
 }
 
+.home-container .MuiCard-root {
+  margin-bottom: 20px;
+  min-height: 120px;
+}
+
+.enquiry-replies {
+  margin-top: 50px;
+}
+
+.enquiry-replies .card {
+  margin-bottom: 20px;
+}
+

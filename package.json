@@ -27,7 +27,9 @@
     "dependencies": {
         "@material-ui/core": "^4.9.0",
         "@material-ui/icons": "^4.5.1",
+        "draft-js": "^0.11.4",
         "draftjs-to-html": "^0.9.1",
+        "moment": "^2.24.0",
         "react-draft-wysiwyg": "^1.14.4"
     }
 }

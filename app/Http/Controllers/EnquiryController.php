@@ -27,6 +27,13 @@ class EnquiryController extends Controller
         return EnquiryListResource::collection($enquiry);
     }
 
+    public function getEnquiries()
+    {
+        $enquiry = Enquiry::with('user')->orderBy('id', 'desc')->get();
+
+        return EnquiryListResource::collection($enquiry);
+    }
+
     public function show($id)
     {
         $enquiry = Enquiry::with('user')->where('id', $id)->first();

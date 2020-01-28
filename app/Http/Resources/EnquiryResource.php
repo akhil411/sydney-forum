@@ -18,6 +18,8 @@ class EnquiryResource extends JsonResource
             'id'            => $this->id,
             'subject'       => $this->subject,
             'description'   => $this->description,
+            'user_name'     => $this->user->name,
+            'created_at'    => $this->created_at,
         ];
     }
 }

@@ -19,6 +19,7 @@ class EnquiryListResource extends JsonResource
             'subject'       => $this->subject,
             'user_id'       => $this->user->id,
             'user_name'     => $this->user->name,
+            'created_at'    => $this->created_at,
             'enquiry_route' => route('enquiry.show', $this->id)
         ];
     }
