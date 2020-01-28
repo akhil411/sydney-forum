@@ -10,8 +10,8 @@ html, body {
 
 .main-container {
     padding-top: 75px;
-    min-height: 100vh;
-    background-image: url("/images/bg_image.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    
+    .container {
+        margin-top: 50px;
+    }
 }

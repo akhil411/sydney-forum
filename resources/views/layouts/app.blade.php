@@ -14,9 +14,7 @@
     <div id="app">
         @include('layouts.header')
         <div class="main-container">
-            <main class="py-4">
                 @yield('content')
-            </main>
         </div>
     </div>
 </body>

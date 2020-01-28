@@ -5,6 +5,7 @@ import Avatar from '@material-ui/core/Avatar';
 import moment from 'moment';
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
+import Pagination from './Pagination';
 
 
 class Posts extends Component {
@@ -12,7 +13,9 @@ class Posts extends Component {
         super();
         this.state = {
             enquiries:[],
+            pageOfItems: [],
         }
+        this.onChangePage = this.onChangePage.bind(this);
     }
 
     componentDidMount() {
@@ -26,12 +29,15 @@ class Posts extends Component {
             this.setState({ enquiries: response.data.data })
         });
     }
+    onChangePage (pageOfItems) {
+		this.setState({ pageOfItems: pageOfItems });
+	}
 
     render() {
 
         return (
             <div>
-                {this.state.enquiries.map( (enquiry, index) => (
+                {this.state.pageOfItems.map( (enquiry, index) => (
                     <div key={index}> 
                         <Card>
                             <CardHeader
@@ -52,6 +58,9 @@ class Posts extends Component {
                     </div>
                     
                 ))}
+                <div className="main-pagination">
+                    <Pagination items={this.state.enquiries} onChangePage={this.onChangePage} />
+                </div>
             </div>
         )
     }

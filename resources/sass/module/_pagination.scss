@@ -1,0 +1,17 @@
+.pagination a {
+    color: black !important;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none !important;
+    li {
+        cursor: pointer;
+    }
+
+    .active {
+        background-color: greenyellow;
+    }
+
+    .disabled:hover {
+        cursor: unset !important;
+    }
+}

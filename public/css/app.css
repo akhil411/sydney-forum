@@ -11368,10 +11368,10 @@ body {
 
 .main-container {
   padding-top: 75px;
-  min-height: 100vh;
-  background-image: url("/images/bg_image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+.main-container .container {
+  margin-top: 50px;
 }
 
 .navbar {
@@ -11418,11 +11418,54 @@ body {
   min-height: 120px;
 }
 
+.home-container .MuiAvatar-colorDefault {
+  background-color: #f14f87 !important;
+}
+
+.home-container .MuiCardActions-root {
+  padding-left: 65px;
+}
+
+.main-page-image {
+  background-image: url("/images/sydney.jpg");
+  height: calc( 100vh - 75px );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.main-page-image h3 {
+  bottom: 31px;
+  position: absolute;
+  left: 30px;
+  color: floralwhite;
+  font-size: 40px;
+}
+
 .enquiry-replies {
   margin-top: 50px;
 }
 
 .enquiry-replies .card {
   margin-bottom: 20px;
+}
+
+.pagination a {
+  color: black !important;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none !important;
+}
+
+.pagination a li {
+  cursor: pointer;
+}
+
+.pagination a .active {
+  background-color: greenyellow;
+}
+
+.pagination a .disabled:hover {
+  cursor: unset !important;
 }
 

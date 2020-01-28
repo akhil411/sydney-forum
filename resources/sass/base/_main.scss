@@ -3,4 +3,26 @@
         margin-bottom: 20px;
         min-height: 120px;
     }
+    .MuiAvatar-colorDefault {
+        background-color: #f14f87 !important;
+    }
+    .MuiCardActions-root {
+        padding-left: 65px;
+    }
+}
+
+.main-page-image {
+    background-image: url("/images/sydney.jpg");
+    height: calc( 100vh - 75px );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    h3 {
+        bottom: 31px;
+        position: absolute;
+        left: 30px;
+        color: floralwhite;
+        font-size: 40px;
+    }
 }
