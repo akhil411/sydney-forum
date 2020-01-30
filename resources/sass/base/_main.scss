@@ -13,16 +13,8 @@
 
 .main-page-image {
     background-image: url("/images/sydney.jpg");
-    height: calc( 100vh - 75px );
+    height: 60vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-
-    h3 {
-        bottom: 31px;
-        position: absolute;
-        left: 30px;
-        color: floralwhite;
-        font-size: 40px;
-    }
 }

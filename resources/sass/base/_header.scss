@@ -1,9 +1,7 @@
 .navbar {
-    background-color: $blue !important;
+    background-color: transparent !important;
     height: 75px;
-    position: fixed;
-    width: 100vw;
-    z-index: 999;
+    box-shadow: unset !important;
     a {
         color: white !important;
     }

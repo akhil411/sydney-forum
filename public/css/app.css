@@ -11367,7 +11367,7 @@ body {
 }
 
 .main-container {
-  padding-top: 75px;
+  margin-top: -75px;
 }
 
 .main-container .container {
@@ -11375,11 +11375,9 @@ body {
 }
 
 .navbar {
-  background-color: #3490dc !important;
+  background-color: transparent !important;
   height: 75px;
-  position: fixed;
-  width: 100vw;
-  z-index: 999;
+  box-shadow: unset !important;
 }
 
 .navbar a {
@@ -11428,18 +11426,10 @@ body {
 
 .main-page-image {
   background-image: url("/images/sydney.jpg");
-  height: calc( 100vh - 75px );
+  height: 60vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-}
-
-.main-page-image h3 {
-  bottom: 31px;
-  position: absolute;
-  left: 30px;
-  color: floralwhite;
-  font-size: 40px;
 }
 
 .enquiry-replies {

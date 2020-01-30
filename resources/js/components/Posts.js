@@ -45,7 +45,7 @@ class Posts extends Component {
                                     <Avatar aria-label="recipe" className="avatar">{enquiry.user_name.charAt(0).toUpperCase()}</Avatar>
                                 }
                                 title={enquiry.subject}
-                                subheader={enquiry.user_name + " posted on " + moment(enquiry.created_at).format('MMMM Do YYYY, h:mm a')}
+                                subheader={"postd by " + enquiry.user_name + " on " + moment(enquiry.created_at).format('MMMM Do YYYY, h:mm a')}
                             />
                             <CardActions>
                                 <a href={enquiry.enquiry_route}>
